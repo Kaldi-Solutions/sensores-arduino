@@ -1,2 +1,2 @@
 # sensores-arduino
-Códigos dos sensores DHT11 e LM35
+Códigos dos sensores utilizados na sprint 1
