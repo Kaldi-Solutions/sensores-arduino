@@ -24,10 +24,12 @@ void loop(){
   if (isnan(temperatura) or isnan(umidade)){
     Serial.println("Erro ao ler o DHT");
   }else{
-    Serial.print("Umidade: " + umidade);
-    Serial.print("; ");
-    Serial.print("Temperatura: " + temperatura);
-    Serial.println(";");
+    Serial.print("Umidade:  ");
+    Serial.print(umidade);
+    Serial.print("%; ");
+    Serial.print("Temperatura: ");
+    Serial.print(temperatura);
+    Serial.println("°C;");
   }
   
   /* LM35 */
