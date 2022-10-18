@@ -12,7 +12,7 @@ int ldr_pin = A5, leitura_ldr = 0;
 int switch_pin = 7;
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(1200);
   dht_1.begin();
   pinMode(switch_pin, INPUT);
 }
@@ -20,13 +20,13 @@ void setup(){
 void loop(){
   /**DHT11**/
   float umidade = dht_1.readHumidity();
-  float umidadeProjeto = 
-  float umidade2 = 
-  float umidade3 = 
-  float umidade4 = 
-  float umidade5 = 
+  float umidadeProjeto = 0.25 * umidade + 43.75;
+  float umidade2 = umidadeProjeto * 1.05;
+  float umidade3 = umidadeProjeto * 0.95;
+  float umidade4 = umidadeProjeto * 0.90;
+  float umidade5 = umidadeProjeto * 1.10;
   float temperatura = dht_1.readTemperature();
-  float temperaturaProjeto = 0.6 * temperatura - 4;
+  float temperaturaProjeto = 3 * temperatura - 54;
   float temperatura2 = temperaturaProjeto * 1.05;
   float temperatura3 = temperaturaProjeto * 0.95;
   float temperatura4 = temperaturaProjeto * 0.90;
@@ -34,11 +34,29 @@ void loop(){
   if (isnan(temperatura) or isnan(umidade)){
     Serial.println("Erro ao ler o DHT");
   }else{
-    Serial.print("Umidade:  ");
-    Serial.print(umidade);
-    Serial.print("%; ");
+    Serial.print("Umidade 1:  ");
+    Serial.print(umidadeProjeto);
+    Serial.println("%; ");
+    Serial.print("Umidade 2:  ");
+    Serial.print(umidade2);
+    Serial.println("%; ");
+    Serial.print("Umidade 3:  ");
+    Serial.print(umidade3);
+    Serial.println("%; ");
+    Serial.print("Umidade 4:  ");
+    Serial.print(umidade4);
+    Serial.println("%; ");
+    Serial.print("Umidade 5:  ");
+    Serial.print(umidade5);
+    Serial.println("%; ");
     Serial.print("Temperatura: ");
     Serial.print(temperatura);
+    Serial.println("°C;");
+    Serial.print("Temperatura 1: ");
+    Serial.print(temperaturaProjeto);
+    Serial.println("°C;");
+    Serial.print("Temperatura 2: ");
+    Serial.print(temperatura2);
     Serial.println("°C;");
   }
   
