@@ -1,2 +1,2 @@
 # sensores-arduino
-Códigos dos sensores utilizados na sprint 1
+Códigos dos sensores utilizados na sprint 2
